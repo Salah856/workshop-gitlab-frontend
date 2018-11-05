@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Hero} from "../../entity/hero";
 import {Observable, of} from "rxjs";
 import { catchError } from 'rxjs/operators';
+import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class HeroService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  private apiUrl:string = 'http://localhost:8080/';
+  private apiUrl:string = environment.apiHero;
 
   constructor(
     private http: HttpClient
