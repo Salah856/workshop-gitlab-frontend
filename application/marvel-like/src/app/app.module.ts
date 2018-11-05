@@ -10,7 +10,7 @@ import {
   MatButtonModule,
   MatCardModule,
   MatGridListModule,
-  MatIconModule, MatMenuModule,
+  MatIconModule, MatMenuModule, MatProgressSpinnerModule,
   MatSnackBarModule,
   MatToolbarModule
 } from "@angular/material";
@@ -33,7 +33,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     MatIconModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatMenuModule
+    MatMenuModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
