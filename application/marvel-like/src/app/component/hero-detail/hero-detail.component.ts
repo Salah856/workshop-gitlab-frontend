@@ -3,6 +3,7 @@ import {ActivatedRoute} from "@angular/router";
 import {HeroService} from "../../service/hero/hero.service";
 import {Hero} from "../../entity/hero";
 import {MatSnackBar} from "@angular/material";
+import {LoadingService} from "../../service/loading/loading.service";
 
 @Component({
   selector: 'app-hero-detail',
@@ -16,7 +17,8 @@ export class HeroDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
-    private snackBar:MatSnackBar
+    private snackBar:MatSnackBar,
+    private loader:LoadingService
   ) { }
 
   ngOnInit() : void {
@@ -26,7 +28,7 @@ export class HeroDetailComponent implements OnInit {
   getHero(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.heroService.getHero(id)
-      .subscribe(hero => { this.hero = hero; console.log(hero) });
+      .subscribe(hero => { this.hero = hero; this.loader.emit()  });
   }
 
   updateHero(): void {

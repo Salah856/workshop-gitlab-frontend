@@ -1,3 +1,14 @@
 .full-spacer {
   flex: 1 1 auto;
 }
+
+div.loader {
+  position: absolute;
+  top: calc(50vh - 50px);
+  width: 100%;
+  text-align: center;
+
+  > * {
+    margin: 0 auto;
+  }
+}

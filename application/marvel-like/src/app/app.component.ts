@@ -1,6 +1,7 @@
 
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {NavigationCancel, NavigationEnd, NavigationStart, Router} from "@angular/router";
+import {LoadingService} from "./service/loading/loading.service";
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   private isHome:boolean = false;
   private loading:boolean = true;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private loader:LoadingService) {}
 
   ngOnInit() {
     this.router.events
@@ -22,6 +23,8 @@ export class AppComponent implements OnInit, AfterViewInit {
           this.isHome = event['url'] === '/';
         }
       });
+
+    this.loader.event().subscribe((event) => this.loading = event);
   }
 
   ngAfterViewInit() {
@@ -31,7 +34,6 @@ export class AppComponent implements OnInit, AfterViewInit {
           this.loading = true;
         }
         else if (
-          event instanceof NavigationEnd ||
           event instanceof NavigationCancel
         ) {
           this.loading = false;
