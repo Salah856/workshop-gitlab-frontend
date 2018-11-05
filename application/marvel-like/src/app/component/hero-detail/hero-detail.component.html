@@ -1,0 +1,17 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <img mat-card-avatar src="{{ hero.thumbnail.path + hero.thumbnail.size.portrait + hero.thumbnail.extension }}" alt="{{ hero.name }}">
+    <mat-card-title>{{ hero.name }}</mat-card-title>
+    <mat-card-subtitle>Marvel Advengers</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="{{ hero.thumbnail.path + hero.thumbnail.size.full + hero.thumbnail.extension }}" alt="{{ hero.name }}">
+  <mat-card-content>
+    <p>
+      {{ hero.description }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button><mat-icon class="example-icon">favorite</mat-icon></button>
+    <button mat-button>SHARE</button>
+  </mat-card-actions>
+</mat-card>
