@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {HeroService} from "../../service/hero/hero.service";
-import { Location } from '@angular/common';
 import {Hero} from "../../entity/hero";
+import {MatSnackBar} from "@angular/material";
 
 @Component({
   selector: 'app-hero-detail',
@@ -16,7 +16,7 @@ export class HeroDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private heroService: HeroService,
-    private location: Location
+    private snackBar:MatSnackBar
   ) { }
 
   ngOnInit() : void {
@@ -29,8 +29,14 @@ export class HeroDetailComponent implements OnInit {
       .subscribe(hero => { this.hero = hero; console.log(hero) });
   }
 
-  goBack(): void {
-    this.location.back();
+  updateHero(): void {
+    this.hero.liked = !this.hero.liked;
+    this.heroService.updateHero(this.hero)
+      .subscribe(() => this.openSnackBar());
+  }
+
+  openSnackBar() {
+    this.snackBar.open('Action saved!', null, {duration:500});
   }
 
 }

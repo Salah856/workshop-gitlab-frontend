@@ -6,7 +6,15 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './component/heroes/heroes.component';
 import { HeroDetailComponent } from './component/hero-detail/hero-detail.component';
 import {HttpClientModule} from "@angular/common/http";
-import {MatButtonModule, MatCardModule, MatGridListModule, MatIconModule, MatToolbarModule} from "@angular/material";
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatGridListModule,
+  MatIconModule, MatMenuModule,
+  MatSnackBarModule,
+  MatToolbarModule
+} from "@angular/material";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -16,13 +24,16 @@ import {MatButtonModule, MatCardModule, MatGridListModule, MatIconModule, MatToo
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     MatGridListModule,
     MatToolbarModule,
     MatCardModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]

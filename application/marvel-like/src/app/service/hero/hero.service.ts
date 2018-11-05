@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
-
-
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Hero} from "../../entity/hero";
-
-import {HttpClient} from "@angular/common/http";
 import {Observable, of} from "rxjs";
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
+
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   private apiUrl:string = 'http://localhost:8080/';
 
@@ -46,6 +47,14 @@ export class HeroService {
       .pipe(
         catchError(this.handleError<Hero>('`getHero id=${id}`'))
       );
+  }
 
+  updateHero(hero:Hero) : Observable<any> {
+
+    const url = `${this.apiUrl}character/${hero.id}`;
+
+    return this.http.put(url, { 'liked' : hero.liked}, this.httpOptions).pipe(
+      catchError(this.handleError<any>('updateHero'))
+    );
   }
 }

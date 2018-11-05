@@ -4,7 +4,7 @@ import {HeroesComponent} from "./component/heroes/heroes.component";
 import {HeroDetailComponent} from "./component/hero-detail/hero-detail.component";
 
 const routes: Routes = [
-  { path: 'list', component: HeroesComponent },
+  { path: '', component: HeroesComponent },
   { path: 'hero/:id', component: HeroDetailComponent }
 ];
 
