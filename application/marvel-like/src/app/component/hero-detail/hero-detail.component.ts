@@ -12,7 +12,7 @@ import {LoadingService} from "../../service/loading/loading.service";
 })
 export class HeroDetailComponent implements OnInit {
 
-  hero: Hero;
+  public hero: Hero;
 
   constructor(
     private route: ActivatedRoute,

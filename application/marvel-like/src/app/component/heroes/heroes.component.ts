@@ -11,7 +11,7 @@ import {LoadingService} from "../../service/loading/loading.service";
 
 export class HeroesComponent implements OnInit {
 
-  private heroes: Hero[];
+  public heroes: Hero[];
 
   constructor(private heroService: HeroService, private loader:LoadingService) { }
 

@@ -11,8 +11,8 @@ import {LoadingService} from "./service/loading/loading.service";
 export class AppComponent implements OnInit, AfterViewInit {
   title = 'Marvel Like App';
 
-  private isHome:boolean = false;
-  private loading:boolean = true;
+  public isHome:boolean = false;
+  public loading:boolean = true;
 
   constructor(private router: Router, private loader:LoadingService) {}
 
