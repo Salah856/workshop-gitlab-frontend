@@ -5,8 +5,9 @@ COPY server /server
 
 RUN cd /application/marvel-like && npm install
 RUN cd /application/marvel-like && ng build --prod
-RUN cd /server && 
+RUN cd /server && npm install
 RUN cp -r /application/marvel-like/dist/marvel-like /server/dist
+RUN rm -R /application
 
 WORKDIR "/server"
 
